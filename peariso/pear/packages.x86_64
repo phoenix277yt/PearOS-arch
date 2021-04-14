@@ -1,9 +1,16 @@
 # Pear
 xorg
-plasma-desktop
-sddm
+xorg-xinit
 arch-install-scripts
+reflector
 pacman-contrib
+nano
+
+plasma
+konsole
+
+# Releng stuff that could be useful
+# there should be something about memtest & uefi shell here
 
 # Arch Baseline
 # SPDX-License-Identifier: GPL-3.0-or-later
