@@ -1,2 +1,2 @@
 # Extractor
-Pulls the ext4 partition from PearOS isos.
+Pulls the ext4 partition from PearOS isos. :)
