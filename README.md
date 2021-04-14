@@ -1,4 +1,6 @@
 # PearOS-arch
+![image](https://user-images.githubusercontent.com/73348506/114759100-5eaf0a00-9d7b-11eb-869b-667835b63ab6.png)
+
 PearOS but based on arch.
 
 
