@@ -1,0 +1,16 @@
+# Maintainer: Matt C <matt@xhec.us>
+pkgname=pear-skel
+pkgver=1.0
+pkgrel=1
+epoch=
+pkgdesc="Icons and scripts for Pear KDE and updater"
+arch=('any')
+url="https://github.com/phoenix277yt/PearOS-arch"
+license=('GPL')
+source=("resources.tar.gz")
+md5sums=('69acdd261ba1436d928a151ab424b166')
+
+package() {
+	mkdir -p $pkgdir/usr/share/
+	tar -xvf resources.tar.gz -C $pkgdir/etc/skel/.
+}
