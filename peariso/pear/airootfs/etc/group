@@ -1,5 +1,0 @@
-root:x:0:root
-adm:x:4:carly
-wheel:x:10:carly
-uucp:x:14:carly
-carly:x:1000:

@@ -8,7 +8,40 @@ nano
 doas
 
 plasma
+ark
+gnome-calendar
+cheese
+evince
+noto-fonts-emoji
+nautilus
+firefox
+gambas3
+gpodder
+gwenview
+# (vv) if not included from KDE
+#kaddressbook
+kate
+kcalc
+kmail
+knotes
 konsole
+ktnef
+kvantum-qt5
+gnome-maps
+gnome-software
+gnome-software-packagekit-plugin
+archlinux-appstream-data
+# empathy (from AUR)
+rhythmbox
+spectacle
+vlc
+gnome-todo
+epiphany
+
+#pext-ide
+#peartv
+#piri
+#pear usb utility
 
 # Releng stuff that could be useful
 # there should be something about memtest & uefi shell here
