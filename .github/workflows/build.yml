@@ -9,9 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: Install Archlinux
         run: curl -L https://github.com/zaoqi/github-actions-archlinux/raw/master/install.sh | sh
       - name: Pacman requirements
-        run: |
-        sudo pacman -Syu --noconfirm pacman-contrib archiso arch-install-scripts
+        run: sudo pacman -Syu --noconfirm pacman-contrib archiso arch-install-scripts
