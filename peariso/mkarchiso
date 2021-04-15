@@ -184,8 +184,8 @@ _mkairootfs_ext4+squashfs() {
     _umount_airootfs
     install -d -m 0755 -- "${isofs_dir}/${install_dir}/${arch}"
     _msg_info "Creating SquashFS image, this may take some time... (1)"
-    _msg_info "But before that, we're running midstep.sh"
-    pushd ${startdir} && ./midstep.sh ${airootfs_dir} && popd
+    _msg_info "But before that, we're running inject.sh"
+    pushd ${startdir} && ./inject.sh ${airootfs_dir} && popd
     _run_mksquashfs "${airootfs_dir}.img"
     _msg_info "Done!"
     rm -- "${airootfs_dir}.img"
@@ -197,8 +197,8 @@ _mkairootfs_squashfs() {
 
     install -d -m 0755 -- "${isofs_dir}/${install_dir}/${arch}"
     _msg_info "Creating SquashFS image, this may take some time... (2)"
-    _msg_info "But before that, we're running midstep.sh"
-    pushd ${startdir} && ./midstep.sh ${airootfs_dir} && popd
+    _msg_info "But before that, we're running inject.sh"
+    pushd ${startdir} && ./inject.sh ${airootfs_dir} && popd
     _run_mksquashfs "${airootfs_dir}"
 }
 
