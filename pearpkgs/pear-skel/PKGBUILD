@@ -11,6 +11,6 @@ source=("resources.tar.gz")
 md5sums=('69acdd261ba1436d928a151ab424b166')
 
 package() {
-	mkdir -p $pkgdir/usr/share/
+	mkdir -p $pkgdir/etc/skel
 	tar -xvf resources.tar.gz -C $pkgdir/etc/skel/.
 }
