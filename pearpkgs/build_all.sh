@@ -10,26 +10,28 @@ err() {
 
 inf "Building all custom packages"
 for directory in $(echo */); do
-    inf "Now building: $directory"
-    pushd $directory
-    if [[ -f create_package.sh ]]; then
-        inf "Handing off to create script."
-        ./create_package.sh
-        inf "Script done."
-    else
-        inf "No special script found, running generic."
-        updpkgsums && makepkg -s
+    if [[ ! "$directory" == "out" ]]; then
+        inf "Now building: $directory"
+        pushd $directory
+        if [[ -f create_package.sh ]]; then
+            inf "Handing off to create script."
+            ./create_package.sh
+            inf "Script done."
+        else
+            inf "No special script found, running generic."
+            updpkgsums && makepkg -s
+        fi
+        fn=$(echo *.pkg.tar.zst)
+        if [[ ! "$fn" == "" ]]; then
+            inf "Build of $directory was good. Moving $fn for upload"
+            cp -v $fn ../out/.
+        else
+            err "Seems like $directory failed."
+            err "Exiting."
+            exit 1
+        fi
+        popd
     fi
-    fn=$(echo *.pkg.tar.zst)
-    if [[ ! "$fn" == "" ]]; then
-        inf "Build of $directory was good. Moving $fn for upload"
-        cp -v $fn ../../
-    else
-        err "Seems like $directory failed."
-        err "Exiting."
-        exit 1
-    fi
-    popd
 done
 
 if [[ -f aur-targets ]]; then
@@ -54,7 +56,7 @@ if [[ -f aur-targets ]]; then
         fn=$(echo *.pkg.tar.zst)
         if [[ ! "$fn" == "" ]]; then
             inf "Build of $directory was good. Moving $fn for upload"
-            cp -v $fn ../../
+            cp -v $fn ../out/.
         else
             err "Seems like $directory failed."
             err "Exiting."
