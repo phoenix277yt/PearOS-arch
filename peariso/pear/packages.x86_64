@@ -5,6 +5,7 @@ arch-install-scripts
 reflector
 pacman-contrib
 nano
+doas
 
 plasma
 konsole
