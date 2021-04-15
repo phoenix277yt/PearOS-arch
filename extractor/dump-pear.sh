@@ -33,3 +33,5 @@ sudo cp -rv ${mntpt}/* ${OUTF}/.
 sudo chown -R ${un}:${un} ${OUTF}/*
 sudo umount ${mntpt}
 sudo rm -rf $mntpt
+
+echo "Contents of ${ISOP} extracted to $OUTF"
