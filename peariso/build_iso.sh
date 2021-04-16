@@ -1,13 +1,16 @@
 rm -fv pearos-live-*.iso
 
+"""
 if [[ ! -f pear/airootfs/sysroot.sqfs ]]; then
     if [[ ! -d sysroot ]]; then
         mkdir sysroot
     fi
     sudo pacstrap sysroot $(cat sysrootpkgs)
-    mksquashfs sysroot pear/airootfs/sysroot.sqfs
-    read
+    sudo rm -rfv sysroot/proc
+    sudo mkdir -p sysroot/proc
+    sudo mksquashfs sysroot pear/airootfs/sysroot.sqfs
 fi
+"""
 
 
 WORKDIR=$(mktemp -d)

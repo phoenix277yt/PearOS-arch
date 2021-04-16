@@ -2,8 +2,8 @@
 # Contributor: Philip Müller <philm[at]manjaro[dog]org>
 
 pkgname=calamares
-pkgver=3.2.42
-_pkgver=3.2.42
+pkgver=3.2.43
+_pkgver=3.2.43
 pkgrel=1
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')

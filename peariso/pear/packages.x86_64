@@ -41,6 +41,7 @@ gnome-todo
 epiphany
 latte-dock
 dolphin
+tk
 
 # Packages we're building
 #pext-ide
