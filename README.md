@@ -4,7 +4,7 @@
 PearOS but based on arch.
 
 
-PearOS is good but it's base, debian/ubuntu is not good enough for what it tries to imitate...
+PearOS is good but it's base, Debian/Ubuntu is not good enough for what it tries to imitate...
 Arch is the answer and this is a project to port PearOS over to Arch.
 
 
