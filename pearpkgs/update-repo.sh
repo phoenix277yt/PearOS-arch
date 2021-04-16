@@ -1,8 +1,8 @@
 #!/bin/bash
 
-printf "Rebuild packages? (y/N)"
+printf "Rebuild packages? (Y/n)"
 read rebuild
-if [[ "$rebuild" == "y" ]]; then
+if [[ ! "$rebuild" == "n" ]]; then
     ./build_all.sh
 fi
 
