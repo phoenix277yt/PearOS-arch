@@ -8,7 +8,8 @@ arch=('any')
 url="https://github.com/phoenix277yt/PearOS-arch"
 license=('GPL')
 source=("resources.tar.gz")
-md5sums=('4df9a2ba17e40ac1ea8ac85b44801e6b')
+noextract=("resources.tar.gz")
+md5sums=('91f61145f3dade0217d0563761748fe4')
 
 package() {
 	mkdir -p $pkgdir/usr/share/

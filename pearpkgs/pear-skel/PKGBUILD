@@ -8,7 +8,8 @@ arch=('any')
 url="https://github.com/phoenix277yt/PearOS-arch"
 license=('GPL')
 source=("resources.tar.gz")
-md5sums=('f2cc4984fc50d84ce5ecf14eb8868b5d')
+noextract=("resources.tar.gz")
+md5sums=('3dab7819a07908bc9bd2c74104bc65d3')
 
 package() {
 	mkdir -p $pkgdir/etc/skel
