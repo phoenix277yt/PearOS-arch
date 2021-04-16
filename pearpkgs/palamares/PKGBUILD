@@ -1,6 +1,6 @@
 # Maintainer: Matt C <matt@xhec.us>
 pkgname=palamares
-pkgver=1.0
+pkgver=1.1
 pkgrel=1
 epoch=
 pkgdesc="PearOS-Arch Tkinter installer"

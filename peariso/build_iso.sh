@@ -1,5 +1,6 @@
 rm -fv pearos-live-*.iso
 
+"""
 fallocate -l800M sysroot.img
 loopdev=$(sudo losetup -Pf --show sysroot.img)
 sudo mkfs.ext4 ${loopdev}
@@ -8,6 +9,7 @@ sudo mount ${loopdev} $sysrootwork
 sudo pacstrap ${sysrootwork} $(cat sysrootpkgs)
 sudo umount ${sysrootwork}
 mv sysroot.img pear/airootfs/.
+"""
 
 WORKDIR=$(mktemp -d)
 # idk if this would've happened automatically?
