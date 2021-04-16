@@ -2,5 +2,5 @@
 
 rm *.tar.*
 
-tar -cvzf resources.tar.gz dots/
+pushd dots && tar -cvzf ../resources.tar.gz * && popd
 updpkgsums && makepkg -s

@@ -12,5 +12,5 @@ repo-add pear.db.tar.gz *.pkg.tar.*
 popd
 
 if [[ "$(cat /etc/hostname)" == "rig" ]]; then
-    rsync -avc pear matt@10.0.0.7:/Files/repo/pear/
+    rsync -avc pear/* matt@10.0.0.7:/Files/repo/pear/.
 fi

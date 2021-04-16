@@ -1,4 +1,4 @@
-# Pear
+# Packages from Arch for CLI
 xorg
 xorg-xinit
 arch-install-scripts
@@ -7,6 +7,7 @@ pacman-contrib
 nano
 doas
 
+# Packages from Arch for KDE/DE
 plasma
 ark
 gnome-calendar
@@ -38,10 +39,13 @@ vlc
 gnome-todo
 epiphany
 
+# Packages we're building
 #pext-ide
 #peartv
 #piri
 #pear usb utility
+pear-resources
+pear-skel
 
 # Releng stuff that could be useful
 # there should be something about memtest & uefi shell here
