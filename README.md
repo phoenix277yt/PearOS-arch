@@ -19,3 +19,7 @@ https://www.github.com/alxb421
 https://www.archlinux.org
 
 https://www.pearos.xyz
+
+
+#Post Install
+For things to do and scripts to run after install, go to https://github.com/phoenix277yt/PearOS-arch-extras
