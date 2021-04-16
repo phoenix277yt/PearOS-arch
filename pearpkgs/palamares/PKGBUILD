@@ -1,0 +1,16 @@
+# Maintainer: Matt C <matt@xhec.us>
+pkgname=palamares
+pkgver=1.0
+pkgrel=1
+epoch=
+pkgdesc="PearOS-Arch Tkinter installer"
+arch=('any')
+url="https://github.com/SomethingGeneric/palamares"
+license=('GPL')
+source=("${pkgname}::git+https://github.com/SomethingGeneric/palamares")
+md5sums=('SKIP')
+
+package() {
+	mkdir -p $pkgdir/usr/bin
+	cp ${pkgname}/palamares.py $pkgdir/usr/bin/palamares
+}

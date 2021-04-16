@@ -41,6 +41,7 @@ gnome-todo
 epiphany
 latte-dock
 dolphin
+tk
 
 # Packages we're building
 #pext-ide
@@ -49,7 +50,8 @@ dolphin
 #pear usb utility
 pear-resources
 pear-skel
-calamares
+#calamares
+palamares
 
 # Releng stuff that could be useful
 # there should be something about memtest & uefi shell here
