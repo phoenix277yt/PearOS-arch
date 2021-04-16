@@ -1,9 +1,9 @@
 # Maintainer: Philip Müller <philm[at]manjaro[dog]org>
 
 pkgname=calamares
-pkgver=3.2.34
-_pkgver=3.2.34
-pkgrel=6
+pkgver=3.2.35
+_pkgver=3.2.35
+pkgrel=1
 _commit=bb97e43aae6958674370d1a4211de51c30098387
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
@@ -20,11 +20,9 @@ backup=('usr/share/calamares/modules/bootloader.conf'
         'usr/share/calamares/modules/unpackfs.conf')
 
 source+=(#"$pkgname-$pkgver-$pkgrel.tar.gz::$url/-/archive/v$pkgver/calamares-v$pkgver.tar.gz"
-         "$pkgname-$pkgver-$pkgrel.tar.gz::$url/-/archive/$_commit/$pkgname-$_commit.tar.gz" #1566.patch
+         "$pkgname-$pkgver-$pkgrel.tar.gz::$url/-/archive/$_commit/$pkgname-$_commit.tar.gz"
         )
-sha256sums=('d68a6951a648e6e82c61b44946c442551b7cc2c2576a6bb0545e3e99bcdc8329'
-            #'f9ca62e91296489a8e9615f8226b946b43f9cbb03484749e67db7f04819c2e9d'
-			)
+sha256sums=('d68a6951a648e6e82c61b44946c442551b7cc2c2576a6bb0545e3e99bcdc8329')
 
 prepare() {
 	mv ${srcdir}/calamares-${_commit} ${srcdir}/calamares-${pkgver}
@@ -33,7 +31,7 @@ prepare() {
 	sed -i -e 's/"Install configuration files" OFF/"Install configuration files" ON/' CMakeLists.txt
 
 	# patches here
-	#patch -p1 -i ../1566.patch
+	# patch -p1 -i ../1566.patch
 
 	# change version
 	sed -i -e "s|$pkgver|$_pkgver|g" CMakeLists.txt
@@ -43,8 +41,14 @@ prepare() {
 	sed -i -e "s|\${CALAMARES_VERSION_MAJOR}.\${CALAMARES_VERSION_MINOR}.\${CALAMARES_VERSION_PATCH}|${_ver}-${pkgrel}|g" CMakeLists.txt
 	sed -i -e "s|CALAMARES_VERSION_RC 1|CALAMARES_VERSION_RC 0|g" CMakeLists.txt
 
+    git clone https://github.com/SomethingGeneric/pear-calamares-branding src/branding/pear
+    rm -rf src/branding/pear/.git
+    rm src/branding/pear/README.md
 	# change branding
-	sed -i -e "s/default/manjaro/g" src/branding/CMakeLists.txt
+	sed -i -e "s/default/pear/g" src/branding/CMakeLists.txt # from og file
+    sed -i "s/manjaro/pear/g" settings.conf
+
+    echo "kek things done"
 }
 
 build() {
@@ -63,7 +67,7 @@ build() {
                               dummyprocess dummypython dummycpp \
                               dummypythonqt services-openrc \
                               keyboardq localeq welcomeq"
-        make
+        make -j $(nproc)
 }
 
 package() {
