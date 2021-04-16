@@ -1,17 +1,13 @@
 rm -fv pearos-live-*.iso
 
-"""
-if [[ ! -f pear/airootfs/sysroot.sqfs ]]; then
-    if [[ ! -d sysroot ]]; then
-        mkdir sysroot
-    fi
-    sudo pacstrap sysroot $(cat sysrootpkgs)
-    sudo rm -rfv sysroot/proc
-    sudo mkdir -p sysroot/proc
-    sudo mksquashfs sysroot pear/airootfs/sysroot.sqfs
-fi
-"""
-
+fallocate -l800M sysroot.img
+loopdev=$(sudo losetup -Pf --show sysroot.img)
+sudo mkfs.ext4 ${loopdev}
+sysrootwork=$(mktemp -d)
+sudo mount ${loopdev} $sysrootwork
+sudo pacstrap ${sysrootwork} $(cat sysrootpkgs)
+sudo umount ${sysrootwork}
+mv sysroot.img pear/airootfs/.
 
 WORKDIR=$(mktemp -d)
 # idk if this would've happened automatically?
