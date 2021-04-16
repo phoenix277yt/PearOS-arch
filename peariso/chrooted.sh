@@ -6,6 +6,7 @@ sed -i 's/Arch/PearOS/g' /etc/issue
 sed -i 's/Arch/PearOS/g' /etc/arch-release
 sed -i 's/Arch/PearOS/g' /etc/os-release
 echo "PearLive" > /etc/hostname
+reflector --latest 5 --sort rate --save /etc/pacman.d/mirrorlist
 
 # We don't add carly until here so that our packages which change
 # /etc/skel have been installed already
