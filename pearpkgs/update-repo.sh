@@ -8,10 +8,12 @@ if [[ ! -d pear ]]; then
     mkdir pear
 fi
 
-printf "Rebuild packages? (Y/n)"
-read rebuild
-if [[ ! "$rebuild" == "n" ]]; then
-    ./build_all.sh
+if [[ "$1" == "" ]]; then
+    printf "Rebuild packages? (Y/n)"
+    read rebuild
+    if [[ ! "$rebuild" == "n" ]]; then
+        ./build_all.sh
+    fi
 fi
 
 cp -rv out/*.pkg.tar.zst pear/.

@@ -1,6 +1,6 @@
 # Maintainer: Matt C <matt@xhec.us>
 pkgname=pear-skel
-pkgver=2.8
+pkgver=2.8.1
 pkgrel=1
 epoch=
 pkgdesc="Icons and scripts for Pear KDE and updater"

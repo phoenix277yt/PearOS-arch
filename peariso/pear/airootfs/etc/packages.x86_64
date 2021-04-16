@@ -42,6 +42,8 @@ epiphany
 latte-dock
 dolphin
 tk
+#virt-video
+mesa
 
 # Packages we're building
 #pext-ide

@@ -42,7 +42,7 @@ epiphany
 latte-dock
 dolphin
 tk
-virt-video
+#virt-video
 mesa
 
 # Packages we're building
