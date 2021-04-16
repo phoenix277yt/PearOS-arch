@@ -6,6 +6,7 @@ reflector
 pacman-contrib
 nano
 doas
+linux-firmware
 
 # Packages from Arch for KDE/DE
 plasma
