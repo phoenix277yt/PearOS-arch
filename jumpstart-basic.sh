@@ -57,5 +57,15 @@ debtap $pkg
 pacmanpkg=$(echo *.pkg.tar.xz)
 pacmanpkg=$(echo *.pkg.tar.zst)
 pacman -U $pacmanpkg
+cd~/pearApps
+mkdir updatemgr
+cd updatemgr
+wget https://github.com/alxb421/update-mgr/releases/download/11.1/xyz.pearos.update-mgr_11.1_all.deb
+debtap -U
+pckg=$(https://github.com/alxb421/update-mgr/releases/download/11.1/xyz.pearos.update-mgr_11.1_all.deb)
+debtap $pckg
+pacmanpkg=$(echo *.pkg.tar.xz)
+pacmanpkg=$(echo *.pkg.tar.zst)
+pacman -U $pacmanpkg
 cd ~
 #end
