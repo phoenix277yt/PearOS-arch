@@ -12,5 +12,7 @@ md5sums=('SKIP')
 
 package() {
 	mkdir -p $pkgdir/usr/bin
-	cp ${pkgname}/palamares.py $pkgdir/usr/bin/palamares
+	mkdir -p $pkgdir/etc/palamares
+	cp -v ${pkgname}/palamares.py $pkgdir/usr/bin/palamares
+	cp -v ${pkgname}/scripts/* $pkgdir/etc/palamares/.
 }
