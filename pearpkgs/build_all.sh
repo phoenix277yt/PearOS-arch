@@ -8,6 +8,10 @@ err() {
     echo "[E] - $1"
 }
 
+if [[ ! -d out ]]; then
+    mkdir out
+fi
+
 inf "Building all custom packages"
 for directory in $(echo */); do
     if [[ ! "$directory" == "out" && ! "$directory" == "pear" ]]; then

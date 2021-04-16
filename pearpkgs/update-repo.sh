@@ -1,5 +1,13 @@
 #!/bin/bash
 
+if [[ ! -d out ]]; then
+    mkdir out
+fi
+
+if [[ ! -d pear ]]; then
+    mkdir pear
+fi
+
 printf "Rebuild packages? (Y/n)"
 read rebuild
 if [[ ! "$rebuild" == "n" ]]; then
