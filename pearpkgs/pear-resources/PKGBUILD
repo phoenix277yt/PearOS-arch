@@ -14,4 +14,5 @@ md5sums=('91f61145f3dade0217d0563761748fe4')
 package() {
 	mkdir -p $pkgdir/usr/share/
 	tar -xvf resources.tar.gz -C $pkgdir/usr/share/.
+	rm resources.tar.gz
 }

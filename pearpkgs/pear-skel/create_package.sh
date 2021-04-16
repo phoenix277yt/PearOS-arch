@@ -3,7 +3,7 @@
 rm *.tar.*
 
 pushd dots
-tar -czf ../resources.tar.gz .*
+tar -czf ../skel.tar.gz .*
 popd
 updpkgsums && makepkg -s
 rm -rf pkg src

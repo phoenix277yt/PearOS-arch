@@ -7,11 +7,12 @@ pkgdesc="Icons and scripts for Pear KDE and updater"
 arch=('any')
 url="https://github.com/phoenix277yt/PearOS-arch"
 license=('GPL')
-source=("resources.tar.gz")
-noextract=("resources.tar.gz")
-md5sums=('da462eee57b2d478749354594ada73fe')
+source=("skel.tar.gz")
+noextract=("skel.tar.gz")
+md5sums=('aa67458ca0ed27e4323794db3f3628f5')
 
 package() {
 	mkdir -p $pkgdir/etc/skel
-	tar -xf resources.tar.gz -C $pkgdir/etc/skel/.
+	tar -xf skel.tar.gz -C $pkgdir/etc/skel/.
+	rm skel.tar.gz
 }
