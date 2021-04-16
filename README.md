@@ -10,6 +10,8 @@ Arch is the answer and this is a project to port PearOS over to Arch.
 # Post Install
 For things to do and scripts to run after install, go to https://github.com/phoenix277yt/PearOS-arch-extras
 
+# References
+
 https://www.github.com/phoenix277yt
 
 https://www.github.com/SomethingGeneric
