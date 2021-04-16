@@ -39,6 +39,7 @@ spectacle
 vlc
 gnome-todo
 epiphany
+latte-dock
 
 # Packages we're building
 #pext-ide
