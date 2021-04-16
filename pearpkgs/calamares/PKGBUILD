@@ -1,10 +1,10 @@
-# Maintainer: Philip Müller <philm[at]manjaro[dog]org>
+# Maintainer: Matt C <matt[at]xhec[dot]us>
+# Contributor: Philip Müller <philm[at]manjaro[dog]org>
 
 pkgname=calamares
-pkgver=3.2.35
-_pkgver=3.2.35
+pkgver=3.2.36
+_pkgver=3.2.36
 pkgrel=1
-_commit=bb97e43aae6958674370d1a4211de51c30098387
 pkgdesc='Distribution-independent installer framework'
 arch=('i686' 'x86_64')
 license=(GPL)
@@ -14,20 +14,18 @@ depends=('kconfig' 'kcoreaddons' 'kiconthemes' 'ki18n' 'kio' 'solid' 'yaml-cpp' 
          'boost-libs' 'ckbcomp' 'hwinfo' 'qt5-svg' 'polkit-qt5' 'gtk-update-icon-cache' 'plasma-framework'
          'qt5-xmlpatterns' 'squashfs-tools' 'libpwquality' 'appstream-qt' 'icu')
 makedepends=('extra-cmake-modules' 'qt5-tools' 'qt5-translations' 'git' 'boost')
-backup=('usr/share/calamares/modules/bootloader.conf'
-        'usr/share/calamares/modules/displaymanager.conf'
-        'usr/share/calamares/modules/initcpio.conf'
-        'usr/share/calamares/modules/unpackfs.conf')
+#backup=('usr/share/calamares/modules/bootloader.conf'
+#        'usr/share/calamares/modules/displaymanager.conf'
+#        'usr/share/calamares/modules/initcpio.conf'
+#        'usr/share/calamares/modules/unpackfs.conf')
 
-source+=(#"$pkgname-$pkgver-$pkgrel.tar.gz::$url/-/archive/v$pkgver/calamares-v$pkgver.tar.gz"
-         "$pkgname-$pkgver-$pkgrel.tar.gz::$url/-/archive/$_commit/$pkgname-$_commit.tar.gz"
+source+=(
+         "$pkgname::git+https://github.com/SomethingGeneric/calamares"
         )
-sha256sums=('d68a6951a648e6e82c61b44946c442551b7cc2c2576a6bb0545e3e99bcdc8329')
+sha256sums=('SKIP')
 
 prepare() {
-	mv ${srcdir}/calamares-${_commit} ${srcdir}/calamares-${pkgver}
-	#mv ${srcdir}/calamares-v${pkgver} ${srcdir}/calamares-${pkgver}
-	cd ${srcdir}/calamares-${pkgver}
+	cd ${srcdir}/calamares
 	sed -i -e 's/"Install configuration files" OFF/"Install configuration files" ON/' CMakeLists.txt
 
 	# patches here
@@ -52,7 +50,7 @@ prepare() {
 }
 
 build() {
-	cd ${srcdir}/calamares-${pkgver}
+	cd ${srcdir}/calamares
 
 	mkdir -p build
 	cd build
@@ -71,13 +69,13 @@ build() {
 }
 
 package() {
-	cd ${srcdir}/calamares-${pkgver}/build
+	cd ${srcdir}/calamares/build
 	make DESTDIR="$pkgdir" install
-	install -Dm644 "../data/manjaro-icon.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/calamares.svg"
-	install -Dm644 "../data/calamares.desktop" "$pkgdir/usr/share/applications/calamares.desktop"
-	install -Dm755 "../data/calamares_polkit" "$pkgdir/usr/bin/calamares_polkit"
-	install -Dm644 "../data/49-nopasswd-calamares.rules" "$pkgdir/etc/polkit-1/rules.d/49-nopasswd-calamares.rules"
-	chmod 750      "$pkgdir"/etc/polkit-1/rules.d
+	#install -Dm644 "../data/manjaro-icon.svg" "$pkgdir/usr/share/icons/hicolor/scalable/apps/calamares.svg"
+	#install -Dm644 "../data/calamares.desktop" "$pkgdir/usr/share/applications/calamares.desktop"
+	#install -Dm755 "../data/calamares_polkit" "$pkgdir/usr/bin/calamares_polkit"
+	#install -Dm644 "../data/49-nopasswd-calamares.rules" "$pkgdir/etc/polkit-1/rules.d/49-nopasswd-calamares.rules"
+	#chmod 750      "$pkgdir"/etc/polkit-1/rules.d
 
 	# rename services-systemd back to services
 	mv "$pkgdir/usr/lib/calamares/modules/services-systemd" "$pkgdir/usr/lib/calamares/modules/services"
