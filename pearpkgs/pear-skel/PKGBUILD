@@ -1,6 +1,6 @@
 # Maintainer: Matt C <matt@xhec.us>
 pkgname=pear-skel
-pkgver=2.4
+pkgver=2.5
 pkgrel=1
 epoch=
 pkgdesc="Icons and scripts for Pear KDE and updater"
@@ -9,7 +9,7 @@ url="https://github.com/phoenix277yt/PearOS-arch"
 license=('GPL')
 source=("skel.tar.gz")
 noextract=("skel.tar.gz")
-md5sums=('5d2a427d69f3a87baa830fa399d5ef2d')
+md5sums=('3934ba7f6ae6ee061fa3154aa37c67a6')
 
 package() {
 	mkdir -p $pkgdir/etc/skel
