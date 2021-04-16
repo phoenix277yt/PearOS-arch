@@ -49,6 +49,7 @@ dolphin
 #pear usb utility
 pear-resources
 pear-skel
+calamares
 
 # Releng stuff that could be useful
 # there should be something about memtest & uefi shell here
