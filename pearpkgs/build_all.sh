@@ -10,7 +10,7 @@ err() {
 
 inf "Building all custom packages"
 for directory in $(echo */); do
-    if [[ ! "$directory" == "out" ]]; then
+    if [[ ! "$directory" == "out" && ! "$directory" == "pear" ]]; then
         inf "Now building: $directory"
         pushd $directory
         if [[ -f create_package.sh ]]; then
