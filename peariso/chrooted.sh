@@ -10,5 +10,6 @@ echo "PearOS-Live" > /etc/hostname
 # /etc/skel have been installed already
 /usr/bin/useradd -m carly
 /usr/bin/usermod -p $(echo "pear" | openssl passwd -6 -stdin) carly
+/usr/bin/usermod -p $(echo "pear" | openssl passwd -6 -stdin) root
 /usr/bin/chmod +x /home/carly/.xinitrc
 echo "Configured the 'carly' user. Exiting chroot."
