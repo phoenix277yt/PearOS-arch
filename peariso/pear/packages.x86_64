@@ -1,4 +1,3 @@
-# Packages from Arch for CLI
 xorg
 xorg-xinit
 arch-install-scripts
@@ -8,7 +7,6 @@ nano
 doas
 linux-firmware
 
-# Packages from Arch for KDE/DE
 plasma
 ark
 gnome-calendar
@@ -20,8 +18,6 @@ firefox
 gambas3
 gpodder
 gwenview
-# (vv) if not included from KDE
-#kaddressbook
 kate
 kcalc
 kmail
@@ -33,7 +29,6 @@ gnome-maps
 gnome-software
 gnome-software-packagekit-plugin
 archlinux-appstream-data
-# empathy (from AUR)
 rhythmbox
 spectacle
 vlc
@@ -42,24 +37,11 @@ epiphany
 latte-dock
 dolphin
 tk
-#virt-video
-#mesa
 
-# Packages we're building
-#pext-ide
-#peartv
-#piri
-#pear usb utility
 pear-resources
 pear-skel
-#calamares
 palamares
 
-# Releng stuff that could be useful
-# there should be something about memtest & uefi shell here
-
-# Arch Baseline
-# SPDX-License-Identifier: GPL-3.0-or-later
 base
 cloud-init
 linux
