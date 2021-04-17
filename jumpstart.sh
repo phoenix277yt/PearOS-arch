@@ -20,11 +20,11 @@ fi
 # Install yay
 # Thanks @axtlos for this spicy one liner
 if [[ $(cat /etc/os-release | grep -iF "manjaro") == "" ]]; then
+	sudo pacman -S yay
+else
 	git clone https://aur.archlinux.org/yay-git.git
 	cd yay-git
 	makepkg -si
-else
-	sudo pacman -S yay
 fi
 
 if [[ -d ~/pearApps ]]; then
