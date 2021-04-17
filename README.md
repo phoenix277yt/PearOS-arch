@@ -1,5 +1,5 @@
 # PearOS-arch
-![6b8c0718034a984dd1cec7517595de431](https://user-images.githubusercontent.com/73348506/114875519-368ecd80-9db2-11eb-869f-df0494d99528.png)
+![6b8c0718034a984dd1cec7517595de431](https://cdn.discordapp.com/attachments/832922844563898398/833042207569215498/pear.png)
 
 PearOS but based on arch.
 
