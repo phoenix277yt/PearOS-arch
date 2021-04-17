@@ -6,6 +6,7 @@ sudo pacman -S --needed gambas3
 sudo pacman -S --needed fakeroot binutils
 
 # Checks what kernel is installed, to install proper headers
+# Credit @axtlos
 if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "hardened" ]]; then
 	sudo pacman -S linux-hardened-headers
 elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "zen" ]]; then
@@ -17,9 +18,14 @@ else
 fi
 
 # Install yay
-git clone https://aur.archlinux.org/yay-git.git
-cd yay-git
-makepkg -si
+# Thanks @axtlos for this spicy one liner
+if [[ $(cat /etc/os-release | grep -iF "manjaro") == "" ]]; then
+	git clone https://aur.archlinux.org/yay-git.git
+	cd yay-git
+	makepkg -si
+else
+	sudo pacman -S yay
+fi
 
 if [[ -d ~/pearApps ]]; then
 	mkdir ~/pearApps
