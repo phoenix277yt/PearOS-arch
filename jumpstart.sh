@@ -1,5 +1,10 @@
 #!/bin/bash
-sudo pacman -S fakeroot binutils
+
+# Install build requirements
+sudo pacman -Syu --needed base-devel make cmake vim nano python tk
+sudo pacman -S --needed gambas3
+sudo pacman -S --needed fakeroot binutils
+
 #Checks what kernel is installed, to install proper headers
 if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "hardened" ]];
 then
@@ -11,15 +16,14 @@ else
 	sudo pacman -S linux-headers
 fi
 
-#Install yay
+# Install yay
 git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
 makepkg -si
 
-sudo pacman -Syyu --needed base-devel make cmake vim nano python tk
-sudo pacman -S gambas3
 mkdir ~/pearApps
 cd ~/pearApps
+
 mkdir control-centre
 cd control-centre
 wget https://github.com/alxb421/Control-Centre/releases/download/11.0.1/xyz.pearos.control-centre_11.1.0_all.deb
@@ -29,15 +33,18 @@ sudo debtap -U
 sudo debtap $ccdebian
 ccalpm=$(echo *.pkg.tar.zst)
 sudo pacman -U $ccalpm
+
 cd ~/pearApps
 git clone https://github.com/alxb421/pext-installer.git
 cd pext-installer
 sudo mv pext-installer /usr/share
+
 cd ~/pearApps
 git clone https://github.com/alxb421/piri-backend.git
 cd piri-backend
 sudo chmod +x install.sh
 sh install.sh
+
 cd ~/pearApps
 mkdir sys-overview
 cd sys-overview
@@ -47,6 +54,7 @@ ccdebian=$("xyz.pearos.system-overview_11.1.0_all.deb")
 debtap $ccdebian
 ccalpm=$(echo *.pkg.tar.zst)
 sudo pacman -U $ccalpm
+
 cd ~/pearApps
 mkdir updmgr
 cd updmgr
