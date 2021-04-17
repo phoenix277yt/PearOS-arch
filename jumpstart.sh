@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install build requirements
-sudo pacman -Syu --needed base-devel make cmake vim nano python tk
+sudo pacman -Syu --needed base-devel make cmake vim nano python tk git
 sudo pacman -S --needed gambas3
 sudo pacman -S --needed fakeroot binutils
 
@@ -21,7 +21,9 @@ git clone https://aur.archlinux.org/yay-git.git
 cd yay-git
 makepkg -si
 
-mkdir ~/pearApps
+if [[ -d ~/pearApps ]]; then
+	mkdir ~/pearApps
+fi
 cd ~/pearApps
 
 mkdir control-centre
@@ -35,12 +37,20 @@ ccalpm=$(echo *.pkg.tar.zst)
 sudo pacman -U $ccalpm
 popd
 
-git clone https://github.com/alxb421/pext-installer.git
+if [[ -d pext-installer ]]; then
+	git clone https://github.com/alxb421/pext-installer.git
+else
+	pushd pext-installer && git pull && popd
+fi
 pushd pext-installer
 sudo mv pext-installer /usr/share
 popd
 
-git clone https://github.com/alxb421/piri-backend.git
+if [[ -d piri-backend ]]; then
+	git clone https://github.com/alxb421/piri-backend.git
+else
+	pushd piri-backend && git pull && popd
+fi
 pushd piri-backend
 sudo chmod +x install.sh
 sh install.sh
