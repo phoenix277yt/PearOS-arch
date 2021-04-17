@@ -2,12 +2,15 @@
 #untested pls fix if error
 sudo pacman -S fakeroot binutils
 #Checks what kernel is installed, to install proper headers
-if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "hardened" ]];
+if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4 }') == "hardened" ]];
 then
 	sudo pacman -S linux-hardened-headers
-elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "zen" ]]
+elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4 }') == "zen" ]]
 then
 	sudo pacman -S linux-zen-headers
+elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $3 }') == "lts" ]]
+then
+	sudo pacman -S linux-lts-headers
 else
 	sudo pacman -S linux-headers
 fi
