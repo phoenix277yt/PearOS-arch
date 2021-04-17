@@ -1,6 +1,23 @@
 #!/bin/bash
 #untested pls fix if error
-sudo pacman -Syyu --needed base-devel make cmake linux-headers vi vim nano python tk yay
+sudo pacman -S fakeroot binutils
+#Checks what kernel is installed, to install proper headers
+if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "hardened" ]];
+then
+	sudo pacman -S linux-hardened-headers
+elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "zen" ]]
+then
+	sudo pacman -S linux-zen-headers
+else
+	sudo pacman -S linux-headers
+fi
+
+#Install yay
+git clone https://aur.archlinux.org/yay-git.git
+cd yay-git
+makepkg -si
+
+sudo pacman -Syyu --needed base-devel make cmake vim nano python tk
 sudo pacman -S gambas3
 mkdir ~/pearApps
 cd ~/pearApps
@@ -8,7 +25,6 @@ mkdir control-centre
 cd control-centre
 wget https://github.com/alxb421/Control-Centre/releases/download/11.0.1/xyz.pearos.control-centre_11.1.0_all.deb
 ccdebian=$"xyz.pearos.control-centre_11.1.0_all.deb"
-sudo pacman -U fakeroot binutils
 yay -S debtap
 sudo debtap -U
 sudo debtap $ccdebian
