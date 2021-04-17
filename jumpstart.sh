@@ -1,5 +1,4 @@
 #!/bin/bash
-#untested pls fix if error
 sudo pacman -S fakeroot binutils
 #Checks what kernel is installed, to install proper headers
 if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4 }') == "hardened" ]];
