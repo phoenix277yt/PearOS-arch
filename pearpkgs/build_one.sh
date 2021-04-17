@@ -7,4 +7,4 @@ if [[ -d $1 ]]; then
     popd
 fi
 
-./upate-repo.sh FOO
+./update-repo.sh FOO

@@ -43,7 +43,7 @@ latte-dock
 dolphin
 tk
 #virt-video
-mesa
+#mesa
 
 # Packages we're building
 #pext-ide
