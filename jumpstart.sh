@@ -5,12 +5,10 @@ sudo pacman -Syu --needed base-devel make cmake vim nano python tk
 sudo pacman -S --needed gambas3
 sudo pacman -S --needed fakeroot binutils
 
-#Checks what kernel is installed, to install proper headers
-if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "hardened" ]];
-then
+# Checks what kernel is installed, to install proper headers
+if [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "hardened" ]]; then
 	sudo pacman -S linux-hardened-headers
-elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "zen" ]]
-then
+elif [[ $(uname -r | awk 'BEGIN { FS = "-" }; { print $4}') == "zen" ]]; then
 	sudo pacman -S linux-zen-headers
 else
 	sudo pacman -S linux-headers
