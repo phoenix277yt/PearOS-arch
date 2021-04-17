@@ -4,4 +4,5 @@ cleanup() {
     rm -rfv palamares
 }
 
+cleanup
 makepkg -s
